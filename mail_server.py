@@ -133,7 +133,7 @@ def delete_mail_route(mail_id: str):
         bool: True if the mail was deleted, False otherwise
     """
     # TODO: implement this function
-    mail_delete = request.get_json()
+    # mail_delete = request.get_json()
     res = jsonify({"Deleted": delete_mail(mail_id)})
     res.status_code = 200
     return res

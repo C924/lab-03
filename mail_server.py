@@ -134,7 +134,7 @@ def delete_mail_route(mail_id: str):
     """
     # TODO: implement this function
     mail_delete = request.get_json()
-    res = jsonify({"Delete Success": delete_mail(mail_id)})
+    res = jsonify({"Deleted": delete_mail(mail_id)})
     res.status_code = 200
     return res
 

@@ -33,24 +33,54 @@ def send_mail(recipient: str, sender: str, subject: str, body: str) -> bool:
 
 def get_inbox(recipient: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+     Accesses inbox of mails sent to server using the key:
+    - recipient
+    
+    Args:
+        recipient (str): Using recipient arguement to access inbox of emails related to the given recepient
+
+    Returns:
+        None
     """
     response = requests.get(f'{SERVER}/mail/inbox/{recipient}')
     pprint.pprint(response.json())
 
 def get_sent(sender: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+     Checks all emails sent from the following key:
+    - sender
+    
+    Args:
+        sender (str): finds emails related to the sender
+
+    Returns:
+        None
     """
     response = requests.get(f'{SERVER}/mail/sent/{sender}')
     pprint.pprint(response.json())
 
 def get_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+     Accesses mail based on the mail_id arguement
+    
+    Args:
+        mail_id (str): each email created generates a unique ID which can be used to access the email
+
+    Returns:
+        None
     """
     response = requests.get(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
 
 def delete_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+     Deletes email if the input for mail_id matches an email in the list
+    
+    Args:
+        mail_id (str): unique ID for an email in the list
+
+    Returns:
+        None
     """
     response = requests.delete(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
